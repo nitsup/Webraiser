@@ -87,21 +87,14 @@ a {
 .brand {
 	display: inline-flex;
 	align-items: center;
-	gap: 8px;
-	font-size: 21px;
-	font-weight: 800;
-	letter-spacing: -1.35px;
+	flex: 0 0 auto;
 	white-space: nowrap;
 }
 
-.brand-mark {
-	width: 27px;
-	height: 27px;
-	color: var(--accent-dark);
-}
-
-.brand-period {
-	color: var(--accent);
+.brand-logo {
+	display: block;
+	width: 170px;
+	height: auto;
 }
 
 .desktop-nav {
@@ -1199,11 +1192,25 @@ h2 {
 }
 
 .brand-footer {
+	gap: 11px;
 	color: white;
 }
 
-.brand-footer .brand-mark {
-	color: #aab49b;
+.brand-symbol {
+	display: block;
+	width: 34px;
+	height: 34px;
+	flex: 0 0 auto;
+}
+
+.brand-wordmark {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: -1px;
+}
+
+.brand-period {
+	color: #2f8bff;
 }
 
 .footer-brand-block > p {
@@ -1592,14 +1599,8 @@ h2 {
 		gap: 10px;
 	}
 
-	.brand {
-		gap: 6px;
-		font-size: 19px;
-	}
-
-	.brand-mark {
-		width: 24px;
-		height: 24px;
+	.brand-logo {
+		width: 142px;
 	}
 
 	.header-cta {
@@ -1607,6 +1608,16 @@ h2 {
 		gap: 8px;
 		padding-inline: 10px;
 		font-size: 10px;
+	}
+
+	@media (max-width: 360px) {
+		.header-cta {
+			display: none;
+		}
+
+		.brand-logo {
+			width: 150px;
+		}
 	}
 
 	.header-cta svg {

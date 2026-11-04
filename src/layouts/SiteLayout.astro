@@ -4,13 +4,48 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description: string;
+	pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
 }
 
 const {
 	title = 'WebRaiser — Thoughtful websites for ambitious businesses',
 	description,
+	pageType = 'WebPage',
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://webraiser.co.in').toString();
+const organizationId = 'https://webraiser.co.in/#organization';
+const websiteId = 'https://webraiser.co.in/#website';
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			'@id': organizationId,
+			name: 'WebRaiser',
+			url: 'https://webraiser.co.in/',
+			logo: 'https://webraiser.co.in/webraiser-logo.svg',
+			description: 'WebRaiser builds custom websites and develops website template concepts for modern businesses.',
+		},
+		{
+			'@type': 'WebSite',
+			'@id': websiteId,
+			name: 'WebRaiser',
+			url: 'https://webraiser.co.in/',
+			inLanguage: 'en',
+			publisher: { '@id': organizationId },
+		},
+		{
+			'@type': pageType,
+			'@id': `${canonicalUrl}#webpage`,
+			url: canonicalUrl,
+			name: title,
+			description,
+			inLanguage: 'en',
+			isPartOf: { '@id': websiteId },
+			publisher: { '@id': organizationId },
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -22,13 +57,17 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://webraiser.co.in').toSt
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#f6f5f0" />
 		<link rel="canonical" href={canonicalUrl} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="WebRaiser" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:locale" content="en_IN" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 		<title>{title}</title>
 	</head>
 	<body>

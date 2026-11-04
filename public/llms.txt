@@ -1,0 +1,16 @@
+# WebRaiser
+
+> WebRaiser is a web development studio creating custom websites and ready-made website template concepts for modern businesses in India and internationally.
+
+## Public pages
+
+- [Home](https://webraiser.co.in/): Overview of custom website development and template concepts.
+- [Work](https://webraiser.co.in/work/): Illustrative portfolio concepts; no entries are represented as completed client work.
+- [Services](https://webraiser.co.in/services/): Business, e-commerce, portfolio, landing-page, web application and redesign services.
+- [Templates](https://webraiser.co.in/templates/): Early template previews; no products are currently offered for purchase.
+- [About](https://webraiser.co.in/about/): WebRaiser's approach to digital work.
+- [Contact](https://webraiser.co.in/contact/): Enquiry form preview. Submissions are not enabled.
+
+## Notes
+
+WebRaiser offers custom website development and is exploring ready-made website templates. The template entries on this site are previews, not available products. The contact form is not connected to a submission service. No contact address or social profiles are published on this site.

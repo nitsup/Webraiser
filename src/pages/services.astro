@@ -4,13 +4,25 @@ import { processSteps, services } from '../data/siteContent';
 ---
 
 <PageShell
-	title="Services — WebRaiser"
-	description="Explore WebRaiser's custom website, e-commerce, portfolio, landing page, web application, and redesign services."
+	title="Website Development Services — WebRaiser"
+	description="WebRaiser offers custom business, e-commerce, portfolio, landing-page and web application development, plus website redesigns for modern businesses."
 >
 	<section class="page-intro shell" aria-labelledby="page-title">
 		<p class="eyebrow">What we do</p>
 		<h1 id="page-title">The right website<br />for <em>your next move.</em></h1>
-		<p>From a clear first impression to a purpose-built digital experience, we help businesses choose an approach that fits their needs.</p>
+		<p>WebRaiser works with modern businesses in India and internationally. Services range from business and e-commerce websites to portfolio sites, landing pages, web applications and redesigns.</p>
+	</section>
+
+	<section class="section shell service-approach" aria-labelledby="service-approach-title">
+		<div>
+			<p class="eyebrow">Custom development</p>
+			<h2 id="service-approach-title">What does custom website development mean?</h2>
+		</div>
+		<div class="service-approach-copy">
+			<p>Custom website development begins with your business, audience and project requirements. The site structure and experience are shaped around that brief rather than starting from a ready-made template.</p>
+			<p>A template is a pre-designed starting point that can be adapted. WebRaiser’s template previews are concepts and are not currently available as products. The right approach depends on the scope and needs of your project.</p>
+			<a class="text-link" href="/templates">See the template concepts <span aria-hidden="true">↗</span></a>
+		</div>
 	</section>
 
 	<section class="services-section page-services-section" aria-label="Web development services">
@@ -20,7 +32,7 @@ import { processSteps, services } from '../data/siteContent';
 					<article class="service-card">
 						<span class="service-number">{service.number}</span>
 						<div>
-							<h2>{service.title}</h2>
+							<h3>{service.title}</h3>
 							<p>{service.description}</p>
 						</div>
 					</article>
