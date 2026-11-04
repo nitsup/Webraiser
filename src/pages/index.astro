@@ -1,16 +1,239 @@
 ---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import WebsitePreview from '../components/WebsitePreview.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const projects = [
+	{
+		title: 'Project title goes here',
+		category: 'Concept preview · Placeholder',
+		description: 'Replace with a verified client project and an approved description.',
+		variant: 'editorial' as const,
+	},
+	{
+		title: 'Project title goes here',
+		category: 'Concept preview · Placeholder',
+		description: 'Replace with a verified client project and an approved description.',
+		variant: 'commerce' as const,
+	},
+	{
+		title: 'Project title goes here',
+		category: 'Concept preview · Placeholder',
+		description: 'Replace with a verified client project and an approved description.',
+		variant: 'portfolio' as const,
+	},
+];
+
+const services = [
+	{ number: '01', title: 'Business websites', description: 'A clear, confident home for your business, built around what your customers need to know.' },
+	{ number: '02', title: 'E-commerce websites', description: 'Considered storefront experiences that make your products easy to explore and understand.' },
+	{ number: '03', title: 'Portfolio websites', description: 'A distinctive way to bring your work, practice and point of view together.' },
+	{ number: '04', title: 'Landing pages', description: 'Focused pages that give a launch, campaign or single offer the space it deserves.' },
+	{ number: '05', title: 'Custom web applications', description: 'Purpose-built digital tools shaped around a specific workflow or customer need.' },
+	{ number: '06', title: 'Redesign & customization', description: 'A thoughtful refresh or tailored improvements to a website you already have.' },
+];
+
+const steps = [
+	{ number: '01', title: 'Discover', description: 'We learn about your business, your audience and what success should feel like.' },
+	{ number: '02', title: 'Plan', description: 'We shape the scope, priorities and structure before moving into design.' },
+	{ number: '03', title: 'Design', description: 'We develop a clear visual direction and refine the details together.' },
+	{ number: '04', title: 'Develop', description: 'We turn the approved design into a responsive, carefully built website.' },
+	{ number: '05', title: 'Deliver', description: 'We review the finished experience and prepare it for its next chapter.' },
+];
+
+const templates = [
+	{ number: '01', name: 'The Editorial', description: 'A calm, type-led direction for stories and ideas.', variant: 'editorial' as const },
+	{ number: '02', name: 'The Collection', description: 'A considered starting point for a product-led brand.', variant: 'commerce' as const },
+	{ number: '03', name: 'The Portfolio', description: 'A simple canvas for independent work and practice.', variant: 'portfolio' as const },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout description="WebRaiser builds thoughtful custom websites and digital products for modern businesses in India and around the world.">
+	<a class="skip-link" href="#main">Skip to content</a>
+	<SiteHeader />
+
+	<main id="main">
+		<section class="hero shell" id="top" aria-labelledby="hero-title">
+			<div class="hero-copy">
+				<p class="eyebrow"><span class="eyebrow-mark"></span> Web development studio · India & worldwide</p>
+				<h1 id="hero-title">A better web<br />for <em>what’s next.</em></h1>
+				<p class="hero-description">
+					WebRaiser builds exceptional digital experiences for modern businesses — from
+					bespoke websites to ready-made templates.
+				</p>
+				<div class="hero-actions">
+					<a class="button button-dark" href="#contact">
+						Start a project
+						<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" /></svg>
+					</a>
+					<a class="text-link" href="#work">Explore our work <span aria-hidden="true">↘</span></a>
+				</div>
+				<div class="hero-note">
+					<span class="hero-note-rule"></span>
+					<p>Made with intention.<br />Built around your next move.</p>
+				</div>
+			</div>
+			<div class="hero-visual">
+				<div class="hero-visual-label"><span>01 — A glimpse of what we can make</span><span>Illustrative preview</span></div>
+				<WebsitePreview variant="hero" />
+				<div class="hero-visual-caption"><span>Thoughtful by design</span><span>Responsive by default</span></div>
+			</div>
+		</section>
+
+		<div class="ticker" aria-hidden="true">
+			<div class="ticker-track">
+				<span>Custom websites</span><i></i><span>Digital products</span><i></i><span>Made for what’s next</span><i></i>
+				<span>Custom websites</span><i></i><span>Digital products</span><i></i><span>Made for what’s next</span><i></i>
+			</div>
+		</div>
+
+		<section class="section shell work-section" id="work" aria-labelledby="work-title">
+			<div class="section-heading">
+				<div>
+					<p class="eyebrow">01 / Selected work</p>
+					<h2 id="work-title">Good work, <em>well presented.</em></h2>
+				</div>
+				<p class="section-intro">Every detail should make the experience clearer, more useful and unmistakably yours.</p>
+			</div>
+			<div class="work-grid">
+				{projects.map((project, index) => (
+					<article class:list={['work-card', index === 1 && 'work-card-offset']}>
+						<div class="work-preview-wrap">
+							<span class="preview-badge">Concept preview</span>
+							<WebsitePreview variant={project.variant} />
+						</div>
+						<div class="work-card-copy">
+							<div>
+								<p class="card-category">{project.category}</p>
+								<h3>{project.title}</h3>
+							</div>
+							<p>{project.description}</p>
+						</div>
+					</article>
+				))}
+			</div>
+			<p class="placeholder-note"><span aria-hidden="true">↗</span> These visual concepts are placeholders, not completed client work.</p>
+		</section>
+
+		<section class="services-section" id="services" aria-labelledby="services-title">
+			<div class="shell section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow eyebrow-light">02 / What we do</p>
+						<h2 id="services-title">The right website<br />for <em>your next move.</em></h2>
+					</div>
+					<p class="section-intro">From a first impression to a fully considered digital experience, we make the web work harder for your business.</p>
+				</div>
+				<div class="services-grid">
+					{services.map((service) => (
+						<article class="service-card">
+							<span class="service-number">{service.number}</span>
+							<div>
+								<h3>{service.title}</h3>
+								<p>{service.description}</p>
+							</div>
+							<span class="service-arrow" aria-hidden="true">↗</span>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="templates-section" id="templates" aria-labelledby="templates-title">
+			<div class="shell section">
+				<div class="templates-heading">
+					<div>
+						<p class="eyebrow">03 / The template edit</p>
+						<h2 id="templates-title">A thoughtful start.<br /><em>Room to make it yours.</em></h2>
+					</div>
+					<div class="templates-intro">
+						<p>Ready-made website directions for a faster, more considered way to get online. Explore the preview concepts below.</p>
+						<a class="button button-outline" href="#template-preview">
+							Browse templates
+							<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" /></svg>
+						</a>
+					</div>
+				</div>
+				<div class="template-grid" id="template-preview">
+					{templates.map((template) => (
+						<article class="template-card">
+							<div class="template-art-wrap">
+								<WebsitePreview variant={template.variant} />
+								<span class="template-index">DIRECTION / {template.number}</span>
+							</div>
+							<div class="template-card-copy">
+								<div>
+									<p class="card-category">Preview concept · Not for sale</p>
+									<h3>{template.name}</h3>
+									<p>{template.description}</p>
+								</div>
+								<span class="template-arrow" aria-hidden="true">↗</span>
+							</div>
+						</article>
+					))}
+				</div>
+				<p class="template-disclaimer">Concept directions only. Product listings, availability and pricing will be added when the marketplace is ready.</p>
+			</div>
+		</section>
+
+		<section class="process-section section shell" aria-labelledby="process-title">
+			<div class="section-heading">
+				<div>
+					<p class="eyebrow">04 / A clear process</p>
+					<h2 id="process-title">Thoughtful at<br /><em>every step.</em></h2>
+				</div>
+				<p class="section-intro">Good work comes from good collaboration. Here’s how we take a project from first conversation to finished website.</p>
+			</div>
+			<ol class="process-list">
+				{steps.map((step) => (
+					<li class="process-step">
+						<span class="process-number">{step.number}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</li>
+				))}
+			</ol>
+		</section>
+
+		<section class="about-section" id="about" aria-labelledby="about-title">
+			<div class="shell about-inner">
+				<div class="about-mark" aria-hidden="true">
+					<span>W</span><i></i><i></i>
+				</div>
+				<div class="about-copy">
+					<p class="eyebrow">05 / A little about us</p>
+					<h2 id="about-title">Small details.<br /><em>Lasting impression.</em></h2>
+					<p>WebRaiser is a web development studio for businesses ready to take their next step online. We bring careful design and considered development together to make websites that feel clear, distinctive and genuinely useful.</p>
+					<p>Working with businesses in India and around the world, we believe the best digital experiences are the ones that make things feel a little simpler.</p>
+					<a class="text-link" href="#contact">Let’s make something meaningful <span aria-hidden="true">↘</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact-section section shell" id="contact" aria-labelledby="contact-title">
+			<div class="contact-main">
+				<p class="eyebrow">06 / Your next chapter</p>
+				<h2 id="contact-title">Have something<br /><em>good in mind?</em></h2>
+				<p>Tell us what you’re building, who it’s for and what you need it to do. We’ll work toward the right direction and a considered quotation.</p>
+				<a class="button button-dark" href="#project-brief">
+					Plan your project brief
+					<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" /></svg>
+				</a>
+			</div>
+			<aside class="brief-card" id="project-brief" aria-labelledby="brief-title">
+				<p class="eyebrow">A useful place to start</p>
+				<h3 id="brief-title">Your project brief</h3>
+				<ul>
+					<li><span>01</span> What your business does</li>
+					<li><span>02</span> Who you want to reach</li>
+					<li><span>03</span> What the website needs to do</li>
+					<li><span>04</span> Any references or timing in mind</li>
+				</ul>
+				<p class="brief-note">Project enquiries are not connected yet. A verified contact channel will be added here before launch.</p>
+			</aside>
+		</section>
+	</main>
+
+	<SiteFooter />
+</SiteLayout>

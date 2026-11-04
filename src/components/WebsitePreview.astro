@@ -1,0 +1,71 @@
+---
+interface Props {
+	variant: 'hero' | 'editorial' | 'commerce' | 'portfolio';
+	class?: string;
+}
+
+const { variant, class: className = '' } = Astro.props;
+
+const previews = {
+	hero: {
+		url: 'yourbrand.co',
+		kicker: 'A better digital home',
+		headline: 'Good ideas deserve a considered online home.',
+		note: 'A visual direction for your next chapter.',
+	},
+	editorial: {
+		url: 'yourbrand.co / journal',
+		kicker: 'Make room for good work',
+		headline: 'A little more meaning in every detail.',
+		note: 'Editorial concept preview',
+	},
+	commerce: {
+		url: 'yourbrand.co / shop',
+		kicker: 'Made to be kept',
+		headline: 'Thoughtful things, simply found.',
+		note: 'Shop concept preview',
+	},
+	portfolio: {
+		url: 'yourbrand.co / selected work',
+		kicker: 'A point of view, online',
+		headline: 'Show the work. Tell the story.',
+		note: 'Portfolio concept preview',
+	},
+};
+
+const preview = previews[variant];
+---
+
+<div class:list={['website-preview', `preview-${variant}`, className]} aria-hidden="true">
+	<div class="browser-bar">
+		<div class="browser-dots"><i></i><i></i><i></i></div>
+		<span class="browser-address">{preview.url}</span>
+		<span class="browser-menu">···</span>
+	</div>
+	<div class="preview-page">
+		<div class="preview-site-nav">
+			<span class="preview-wordmark">YOUR BRAND</span>
+			<span class="preview-nav-lines"><i></i><i></i><i></i></span>
+		</div>
+		<div class="preview-layout">
+			<div class="preview-copy">
+				<span class="preview-kicker">{preview.kicker}</span>
+				<span class="preview-headline">{preview.headline}</span>
+				<span class="preview-cta">Explore <span>↗</span></span>
+			</div>
+			<div class="preview-art">
+				<div class="art-shape art-shape-back"></div>
+				<div class="art-shape art-shape-front">
+					<span class="art-sun"></span>
+					<span class="art-line art-line-one"></span>
+					<span class="art-line art-line-two"></span>
+				</div>
+				<span class="art-caption">01 / 03</span>
+			</div>
+		</div>
+		<div class="preview-bottom">
+			<span>{preview.note}</span>
+			<span>Scroll to discover <i>↓</i></span>
+		</div>
+	</div>
+</div>
