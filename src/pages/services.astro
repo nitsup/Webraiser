@@ -1,0 +1,60 @@
+---
+import PageShell from '../layouts/PageShell.astro';
+import { processSteps, services } from '../data/siteContent';
+---
+
+<PageShell
+	title="Services — WebRaiser"
+	description="Explore WebRaiser's custom website, e-commerce, portfolio, landing page, web application, and redesign services."
+>
+	<section class="page-intro shell" aria-labelledby="page-title">
+		<p class="eyebrow">What we do</p>
+		<h1 id="page-title">The right website<br />for <em>your next move.</em></h1>
+		<p>From a clear first impression to a purpose-built digital experience, we help businesses choose an approach that fits their needs.</p>
+	</section>
+
+	<section class="services-section page-services-section" aria-label="Web development services">
+		<div class="shell section">
+			<div class="services-grid page-services-grid">
+				{services.map((service) => (
+					<article class="service-card">
+						<span class="service-number">{service.number}</span>
+						<div>
+							<h2>{service.title}</h2>
+							<p>{service.description}</p>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="section shell page-process-section" aria-labelledby="process-title">
+		<div class="section-heading">
+			<div>
+				<p class="eyebrow">A clear process</p>
+				<h2 id="process-title">Thoughtful at<br /><em>every step.</em></h2>
+			</div>
+			<p class="section-intro">Each project starts with understanding the need and agreeing the scope before work moves ahead.</p>
+		</div>
+		<ol class="process-list">
+			{processSteps.map((step) => (
+				<li class="process-step">
+					<span class="process-number">{step.number}</span>
+					<h3>{step.title}</h3>
+					<p>{step.description}</p>
+				</li>
+			))}
+		</ol>
+	</section>
+
+	<section class="page-bottom-cta">
+		<div class="shell page-bottom-cta-inner">
+			<div>
+				<p class="eyebrow eyebrow-light">Start with a conversation</p>
+				<h2>Tell us what<br /><em>you have in mind.</em></h2>
+			</div>
+			<a class="button button-light" href="/contact">Discuss a project <span aria-hidden="true">↗</span></a>
+		</div>
+	</section>
+</PageShell>

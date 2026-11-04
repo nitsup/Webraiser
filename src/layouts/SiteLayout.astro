@@ -10,6 +10,7 @@ const {
 	title = 'WebRaiser — Thoughtful websites for ambitious businesses',
 	description,
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://webraiser.co.in').toString();
 ---
 
 <!doctype html>
@@ -20,14 +21,14 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#f6f5f0" />
-		<link rel="canonical" href="https://webraiser.co.in/" />
+		<link rel="canonical" href={canonicalUrl} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="WebRaiser" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:url" content="https://webraiser.co.in/" />
+		<meta property="og:url" content={canonicalUrl} />
 		<title>{title}</title>
 	</head>
 	<body>

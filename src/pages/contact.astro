@@ -1,0 +1,50 @@
+---
+import PageShell from '../layouts/PageShell.astro';
+---
+
+<PageShell
+	title="Contact — WebRaiser"
+	description="Prepare a project enquiry for WebRaiser. The enquiry form is a preview and is not connected to a submission service."
+>
+	<section class="page-intro shell" aria-labelledby="page-title">
+		<p class="eyebrow">Start a conversation</p>
+		<h1 id="page-title">Have something<br /><em>good in mind?</em></h1>
+		<p>Share a little about what you are building and the kind of website you need. This enquiry form is a visual preview and does not send or store information yet.</p>
+	</section>
+
+	<section class="contact-section section shell page-contact-section" aria-label="Project enquiry">
+		<div class="contact-main">
+			<p class="eyebrow">A useful place to start</p>
+			<h2>Tell us about<br /><em>your project.</em></h2>
+			<p>A project outline helps frame a useful first conversation. You might include your business, audience, goals, timing and any references you have.</p>
+			<p class="contact-availability">The form is not connected to a backend, and no contact address has been supplied in the project.</p>
+		</div>
+
+		<form class="enquiry-form" aria-describedby="form-status">
+			<fieldset disabled>
+				<legend>Project enquiry</legend>
+				<p id="form-status" class="form-status">Preview only — submissions are not enabled. Your details will not be sent.</p>
+
+				<label for="enquiry-name">Your name</label>
+				<input id="enquiry-name" name="name" autocomplete="name" placeholder="Name" />
+
+				<label for="enquiry-email">Email address</label>
+				<input id="enquiry-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+
+				<label for="enquiry-type">What are you looking to build?</label>
+				<select id="enquiry-type" name="project-type">
+					<option value="">Choose a project type</option>
+					<option>Business website</option>
+					<option>E-commerce website</option>
+					<option>Portfolio or landing page</option>
+					<option>Other digital project</option>
+				</select>
+
+				<label for="enquiry-message">A little about your project</label>
+				<textarea id="enquiry-message" name="message" rows="5" placeholder="What are you hoping to make?"></textarea>
+
+				<button class="button button-dark" type="submit">Enquiries are not enabled</button>
+			</fieldset>
+		</form>
+	</section>
+</PageShell>

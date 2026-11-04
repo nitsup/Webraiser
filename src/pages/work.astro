@@ -1,0 +1,47 @@
+---
+import WebsitePreview from '../components/WebsitePreview.astro';
+import PageShell from '../layouts/PageShell.astro';
+import { projects } from '../data/siteContent';
+---
+
+<PageShell
+	title="Work — WebRaiser"
+	description="Explore WebRaiser's visual website concepts and placeholder portfolio previews."
+>
+	<section class="page-intro shell" aria-labelledby="page-title">
+		<p class="eyebrow">Selected work</p>
+		<h1 id="page-title">Good work,<br /><em>well presented.</em></h1>
+		<p>We are shaping a portfolio of thoughtful digital experiences. The previews below are visual concepts, not completed client projects.</p>
+	</section>
+
+	<section class="section shell page-section" aria-label="Portfolio concept previews">
+		<div class="work-grid">
+			{projects.map((project, index) => (
+				<article class:list={['work-card', index === 1 && 'work-card-offset']}>
+					<div class="work-preview-wrap">
+						<span class="preview-badge">Concept preview</span>
+						<WebsitePreview variant={project.variant} />
+					</div>
+					<div class="work-card-copy">
+						<div>
+							<p class="card-category">{project.category} · Placeholder</p>
+							<h3>{project.title}</h3>
+						</div>
+						<p>{project.description}</p>
+					</div>
+				</article>
+			))}
+		</div>
+		<p class="placeholder-note"><span aria-hidden="true">↗</span> Project names, client details and outcomes will only be added when verified and approved.</p>
+	</section>
+
+	<section class="page-bottom-cta">
+		<div class="shell page-bottom-cta-inner">
+			<div>
+				<p class="eyebrow eyebrow-light">Have a project in mind?</p>
+				<h2>Let’s make your<br /><em>next one count.</em></h2>
+			</div>
+			<a class="button button-light" href="/contact">Start a project <span aria-hidden="true">↗</span></a>
+		</div>
+	</section>
+</PageShell>

@@ -1,0 +1,49 @@
+---
+import WebsitePreview from '../components/WebsitePreview.astro';
+import PageShell from '../layouts/PageShell.astro';
+import { templates } from '../data/siteContent';
+---
+
+<PageShell
+	title="Templates — WebRaiser"
+	description="Browse WebRaiser's early website template concepts. These previews are illustrative and are not available to purchase."
+>
+	<section class="page-intro shell" aria-labelledby="page-title">
+		<p class="eyebrow">The template edit</p>
+		<h1 id="page-title">A thoughtful start.<br /><em>Room to make it yours.</em></h1>
+		<p>These early visual directions explore different ways a ready-made website might begin. They are previews, not live products.</p>
+	</section>
+
+	<section class="templates-section page-templates-section" aria-label="Website template preview concepts">
+		<div class="shell section">
+			<div class="template-grid">
+				{templates.map((template) => (
+					<article class="template-card">
+						<div class="template-art-wrap">
+							<WebsitePreview variant={template.variant} />
+							<span class="template-index">DIRECTION / {template.number}</span>
+						</div>
+						<div class="template-card-copy">
+							<div>
+								<p class="card-category">Preview concept · Not for sale</p>
+								<h3>{template.name}</h3>
+								<p>{template.description}</p>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+			<p class="template-disclaimer">No product listings, purchase flow, availability or pricing are implemented yet.</p>
+		</div>
+	</section>
+
+	<section class="page-bottom-cta">
+		<div class="shell page-bottom-cta-inner">
+			<div>
+				<p class="eyebrow eyebrow-light">Looking for something custom?</p>
+				<h2>Let’s talk about<br /><em>your website.</em></h2>
+			</div>
+			<a class="button button-light" href="/contact">Start a project <span aria-hidden="true">↗</span></a>
+		</div>
+	</section>
+</PageShell>
